@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getWeather)\n/* harmony export */ });\nasync function getWeather(location) {\n  location = location.toLowerCase();\n  const api_key = '9163a5b7d3c7495ca4a232649231812';\n\n  try {\n    const data = await fetch(\n      `https://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${location}`,\n      {\n        mode: 'cors',\n      }\n    );\n    const weatherData = await data.json();\n    return weatherData;\n  } catch (error) {\n    alert('An error occurred while fetching weather data. Please try again.');\n  }\n}\n\n\n//# sourceURL=webpack://webpack-template/./src/getWeather.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getWeather)\n/* harmony export */ });\nasync function getWeather(location) {\n  location = location.toLowerCase();\n  const api_key = '9163a5b7d3c7495ca4a232649231812';\n  const url = `https://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${location}`;\n\n  try {\n    const data = await fetch(url, {\n      mode: 'cors',\n    });\n    const weatherData = await data.json();\n    return weatherData;\n  } catch (error) {\n    alert('An error occurred while fetching weather data. Please try again.');\n  }\n}\n\n\n//# sourceURL=webpack://webpack-template/./src/getWeather.js?");
 
 /***/ }),
 
