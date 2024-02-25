@@ -4,7 +4,10 @@ import handleClick from './handleClick';
 const getWeatherBtn = document.getElementById('get-weather-btn');
 const locationInput = document.getElementById('location-input');
 const clearResultsBtn = document.getElementById('clear-results-btn');
-getWeatherBtn.addEventListener('click', handleClick);
+getWeatherBtn.addEventListener('click', (e) => {
+  handleClick();
+  locationInput.value = '';
+});
 locationInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     handleClick();
