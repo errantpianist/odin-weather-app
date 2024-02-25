@@ -1,4 +1,8 @@
 export default function filterWeatherData(weatherData) {
+  if (weatherData.error) {
+    alert('An error occurred while fetching weather data. Please try again.');
+    return;
+  }
   const filteredData = {
     location: weatherData.location.name,
     region: weatherData.location.region,

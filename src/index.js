@@ -1,12 +1,19 @@
 import './style.css';
-import getWeather from './getWeather';
-import filterWeatherData from './filterWeatherData';
-import presentWeatherData from './presentWeatherData';
+import handleClick from './handleClick';
 
-const contentContainer = document.getElementById('content');
-const testContent = document.createElement('p');
-const weatherData = await getWeather('London');
-const filteredData = filterWeatherData(weatherData);
-presentWeatherData(filteredData);
+const getWeatherBtn = document.getElementById('get-weather-btn');
+const locationInput = document.getElementById('location-input');
+const clearResultsBtn = document.getElementById('clear-results-btn');
+getWeatherBtn.addEventListener('click', handleClick);
+locationInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    handleClick();
+    locationInput.value = '';
+  }
+});
 
-console.log(filteredData);
+clearResultsBtn.addEventListener('click', () => {
+  const weatherContainer = document.getElementById('weather-container');
+  weatherContainer.innerHTML = '';
+  clearResultsBtn.classList.add('hidden');
+});

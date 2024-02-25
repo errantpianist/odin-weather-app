@@ -12,6 +12,6 @@ export default async function getWeather(location) {
     const weatherData = await data.json();
     return weatherData;
   } catch (error) {
-    console.log(error);
+    alert('An error occurred while fetching weather data. Please try again.');
   }
 }

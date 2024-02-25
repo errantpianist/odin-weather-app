@@ -1,6 +1,24 @@
 export default function presentWeatherData(filteredWeatherData) {
-  const contentContainer = document.getElementById('content');
-  const testContent = document.createElement('p');
-  testContent.textContent = `The weather in ${filteredWeatherData.location}, ${filteredWeatherData.region}, ${filteredWeatherData.country} is ${filteredWeatherData.temperature}°C and ${filteredWeatherData.condition}`;
-  contentContainer.appendChild(testContent);
+  const weatherContainer = document.getElementById('weather-container');
+  const weatherCard = document.createElement('div');
+  weatherCard.classList.add('weather-card');
+  const location = document.createElement('h2');
+  location.textContent = filteredWeatherData.location;
+  const region = document.createElement('p');
+  region.textContent = filteredWeatherData.region;
+  const country = document.createElement('p');
+  country.textContent = filteredWeatherData.country;
+  const temperature = document.createElement('p');
+  temperature.textContent = `${filteredWeatherData.temperature}°C`;
+  const condition = document.createElement('p');
+  condition.textContent = filteredWeatherData.condition;
+  const icon = document.createElement('img');
+  icon.src = filteredWeatherData.icon;
+  weatherCard.appendChild(location);
+  weatherCard.appendChild(region);
+  weatherCard.appendChild(country);
+  weatherCard.appendChild(temperature);
+  weatherCard.appendChild(condition);
+  weatherCard.appendChild(icon);
+  weatherContainer.prepend(weatherCard);
 }
